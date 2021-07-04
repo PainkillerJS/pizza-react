@@ -3,9 +3,6 @@
 /.pnp
 .pnp.js
 
-/config
-/scripts
-
 # testing
 /coverage
 
