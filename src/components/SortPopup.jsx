@@ -1,12 +1,13 @@
 import React from 'react';
 
-function SortPopup({ items }) {
+const SortPopup = React.memo(function SortPopup({ items }) {
   const [visiblePopup, setVisiblePopup] = React.useState(false);
   const sortRef = React.useRef();
   const [activeItem, setActiveItem] = React.useState(0);
   const activeLabel = items[activeItem];
 
   const toggleVisiblePopup = () => setVisiblePopup(!visiblePopup);
+
   const changeActivePopup = (i) => {
     setActiveItem(i);
     setVisiblePopup(false);
@@ -56,6 +57,6 @@ function SortPopup({ items }) {
       )}
     </div>
   );
-}
+});
 
 export default SortPopup;
