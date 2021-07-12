@@ -1,24 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const Categories = React.memo(function Categories({ items, onClickItem }) {
-  const [active, setActive] = useState(null);
-
-  function setActiveItem(i) {
-    setActive(i);
-    onClickItem(i);
-  }
-
+const Categories = React.memo(function Categories({ activeCategory, items, onClickItem }) {
   return (
     <div className="categories">
       <ul>
-        <li onClick={() => setActiveItem(null)} className={active === null ? 'active' : null}>
+        <li onClick={() => onClickItem(null)} className={activeCategory === null ? 'active' : null}>
           Все
         </li>
         {items &&
           items.map((item, i) => (
             <li
-              onClick={() => setActiveItem(i)}
-              className={active === i ? 'active' : null}
+              onClick={() => onClickItem(i)}
+              className={activeCategory === i ? 'active' : null}
               key={`${item}_${i}`}>
               {item}
             </li>
