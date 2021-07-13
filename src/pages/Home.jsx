@@ -41,7 +41,9 @@ function Home() {
       <h2 className="content__title">Все пиццы</h2>
       <div className="content__items">
         {isLoaded
-          ? pizzas.map((item) => <PizzaBlock isLoading={true} key={item.id} {...item} />)
+          ? pizzas.map((item) => (
+              <PizzaBlock onClickAddPizza isLoading={true} key={item.id} {...item} />
+            ))
           : Array(12)
               .fill(0)
               .map((_, i) => <PizzaLoadingBlock key={i} />)}
