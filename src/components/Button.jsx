@@ -1,8 +1,10 @@
 import React from 'react';
 
-function Button({ outline, children, className }) {
+function Button({ outline, children, className, onClick }) {
   return (
-    <button className={`button ${outline ? 'button--cart' : null} ${className}`}>{children}</button>
+    <button onClick={onClick} className={`button ${outline ? 'button--cart' : null} ${className}`}>
+      {children}
+    </button>
   );
 }
 
