@@ -25,12 +25,9 @@ function Home() {
 
   React.useEffect(() => {
     dispatch(fetchPizzas(category, sort, type));
-    // eslint-disable-next-line
   }, [category, sort]);
 
-  // eslint-disable-next-line
   const onSelectCategory = React.useCallback((i) => dispatch(setCategory(i)), []);
-  // eslint-disable-next-line
   const onSelectSortType = React.useCallback((type, sort) => dispatch(setSortBy(type, sort)), []);
   const handleAddPizzaToCard = (obj) => dispatch(addPizzaToCart(obj));
 
@@ -46,7 +43,7 @@ function Home() {
           ? pizzas.map((item) => (
               <PizzaBlock
                 onClickAddPizza={handleAddPizzaToCard}
-                cartCount={cartItems[item.id] && cartItems[item.id].length}
+                cartCount={cartItems[item.id] && cartItems[item.id].items.length}
                 key={item.id}
                 {...item}
               />
