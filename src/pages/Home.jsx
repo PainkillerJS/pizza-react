@@ -25,7 +25,6 @@ function Home() {
 
   useEffect(() => {
     dispatch(fetchPizzas(category, sort, type));
-    // eslint-disable-next-line
   }, [category, sort]);
 
   // eslint-disable-next-line
@@ -35,13 +34,13 @@ function Home() {
   const handleAddPizzaToCard = (obj) => dispatch(addPizzaToCart(obj));
 
   return (
-    <div className="container">
-      <div className="content__top">
+    <div className='container'>
+      <div className='content__top'>
         <Categories onClickItem={onSelectCategory} items={items} activeCategory={category} />
         <SortPopup activeSortBy={type} items={sortType} onSelectSortType={onSelectSortType} />
       </div>
-      <h2 className="content__title">Все пиццы</h2>
-      <div className="content__items">
+      <h2 className='content__title'>Все пиццы</h2>
+      <div className='content__items'>
         {isLoaded
           ? pizzas.map((item) => (
               <PizzaBlock

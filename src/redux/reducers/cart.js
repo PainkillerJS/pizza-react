@@ -31,8 +31,10 @@ function cart(state = initialState, action) {
         totalPrice,
       };
     }
+
     case 'CLEAR_CART':
       return { totalPrice: 0, totalCount: 0, items: {} };
+
     case 'REMOVE_CART_ITEM':
       const newItems = { ...state.items };
       const currentTotalPrice = newItems[action.payload].totalPrice;
@@ -46,6 +48,7 @@ function cart(state = initialState, action) {
         totalPrice: state.totalPrice - currentTotalPrice,
         totalCount: state.totalCount - currentTotalCount,
       };
+
     case 'PLUS_CART_ITEM': {
       const newItems = [...state.items[action.payload].items, state.items[action.payload].items[0]];
 
