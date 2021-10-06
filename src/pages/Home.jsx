@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { Categories, SortPopup, PizzaBlock, PizzaLoadingBlock } from '../components';
@@ -23,15 +23,15 @@ function Home() {
     sortBy: { type, sort },
   } = useSelector(({ filters }) => filters);
 
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch(fetchPizzas(category, sort, type));
     // eslint-disable-next-line
   }, [category, sort]);
 
   // eslint-disable-next-line
-  const onSelectCategory = React.useCallback((i) => dispatch(setCategory(i)), []);
+  const onSelectCategory = useCallback((i) => dispatch(setCategory(i)), []);
   // eslint-disable-next-line
-  const onSelectSortType = React.useCallback((type, sort) => dispatch(setSortBy(type, sort)), []);
+  const onSelectSortType = useCallback((type, sort) => dispatch(setSortBy(type, sort)), []);
   const handleAddPizzaToCard = (obj) => dispatch(addPizzaToCart(obj));
 
   return (
@@ -46,7 +46,7 @@ function Home() {
           ? pizzas.map((item) => (
               <PizzaBlock
                 onClickAddPizza={handleAddPizzaToCard}
-                cartCount={cartItems[item.id] && cartItems[item.id].length}
+                cartCount={cartItems[item.id] && cartItems[item.id].items.length}
                 key={item.id}
                 {...item}
               />

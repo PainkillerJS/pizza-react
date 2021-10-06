@@ -28,7 +28,7 @@ body {
   &__items {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-evenly;
   }
 
   &__top {
@@ -185,6 +185,12 @@ body {
 
       .button {
         border-color: darken($color: $gray-line, $amount: 10);
+        background-color: transparent;
+        padding: 0;
+        svg {
+          margin-right: 0;
+          margin-bottom: 0;
+        }
       }
 
       svg {
@@ -256,7 +262,7 @@ body {
           }
         }
 
-        svg {
+        img {
           margin-right: 12px;
           path {
             fill: transparent;
